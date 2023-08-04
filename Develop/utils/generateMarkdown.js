@@ -1,27 +1,36 @@
-// // TODO: Create a function that returns a license badge based on which license is passed in
-// // If there is no license, return an empty string
+
 function renderLicenseBadge(license) {
-return `[![License: IPL 1.0](https://img.shields.io/badge/License-${license}-blue.svg)](https://opensource.org/licenses/${license})`
+  return `[![License: IPL 1.0](https://img.shields.io/badge/License-${license}-blue.svg)](https://opensource.org/licenses/${license})`
 
 }
 
-// // TODO: Create a function that returns the license link
-// // If there is no license, return an empty string
-// function renderLicenseLink(license) {}
+function bootcampBadge() {
+  return '![edX](https://img.shields.io/badge/edX-%2302262B.svg?style=for-the-badge&logo=edX&logoColor=white)'
+}
 
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
+function nodejsBadge() {
+  return '![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)'
+}
 
-// // TODO: Create a function to generate markdown for README
+function jsBadge() {
+  return '![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)'
+}
+
+function githubURL(githubUserName) {
+  return `https://github.com/${githubUserName}`
+}
+
 export const getMarkdown = (answers) => {
 
-  const gitURL = `https://github.com/${answers.githubUserName}`
+  let userName = answers.githubUserName
 
   return `
-  |License| ${renderLicenseBadge(answers.license)} |
-  |--|--|
-  
+  | ${bootcampBadge()} | ${nodejsBadge()} | ${jsBadge()} |
+  |--|--|--|
+
+  #### License
+ > This application is covered by:${'&nbsp;    '}${renderLicenseBadge(answers.license)} 
+
   # Project: ${answers.title}
   
   
@@ -54,10 +63,10 @@ export const getMarkdown = (answers) => {
   
   ### Reach me at the following for any questions or concerns...
 
-- E-mail: ${answers.email}
-- GitHub: ${answers.githubUserName}
+ - E-mail: ${answers.email}
+ - Github: ${githubURL(userName)}
   
-#### Table of Contents
+ #### Table of Contents
   
   [Description](#readme-description)
   [Installation](#readme-installation)

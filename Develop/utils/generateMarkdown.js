@@ -21,7 +21,7 @@ function githubURL(githubUserName) {
 }
 
 export const getMarkdown = (answers) => {
-
+  const { title, description, installInstructions, usageInfo, guidelines, testInstructions, email } = answers
   let userName = answers.githubUserName
 
   return `
@@ -31,39 +31,39 @@ export const getMarkdown = (answers) => {
   #### License
  > This application is covered by:${'&nbsp;    '}${renderLicenseBadge(answers.license)} 
 
-  # Project: ${answers.title}
+  # Project: ${title}
   
   
   ### <a id="readme-description"></a>Description
   
-  ${answers.description}
+  ${description}
   
   
   ###  <a id="readme-installation"></a>Installation
   
-  > ${answers.installInstructions}
+  > ${installInstructions}
   
   
   ### <a id="readme-usage"></a>Usage
   
-  > ${answers.usageInfo}
+  > ${usageInfo}
   
   
   ### <a id="readme-guidelines"></a>Contribution Guidelines
   
-  > ${answers.guidelines}
+  > ${guidelines}
   
   
   ### <a id="readme-test"></a>Test
   
-  > ${answers.testInstructions}
+  > ${testInstructions}
   
 
   # Questions?
   
   ### Reach me at the following for any questions or concerns...
 
- - E-mail: ${answers.email}
+ - E-mail: ${email}
  - Github: ${githubURL(userName)}
   
  #### Table of Contents
